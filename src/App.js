@@ -1,24 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
+import "./App.css";
 function App() {
+  const [todo, setTodo] = useState([]);
+  const [filterTask, setFilterTask] = useState(null);
+
+  const addTask = (newTask) => {
+    setTodo([...todo, newTask]);
+    setFilterTask(null);
+  };
+
+  const deleteTask = (index) => {
+    const newTodo = [];
+    for (let i = 0; i < todo.length; i++) {
+      if (i !== index) {
+        newTodo.push(todo[i]);
+      }
+    }
+    setTodo(newTodo);
+    setFilterTask(null);
+  };
+
+  const deleteAll = () => {
+    setTodo([]);
+    setFilterTask(null);
+  };
+
+  const checked = (updatedTodo) => {
+    setTodo(updatedTodo);
+  };
+
+  const taskCompleted = () => {
+    const completedTasks = todo.filter((task) => task.status === "completed");
+    if (completedTasks.length === 0) {
+      setFilterTask([]);
+    } else {
+      setFilterTask(completedTasks);
+    }
+  };
+
+  const taskIncompleted = () => {
+    const incompleteTasks = todo.filter((task) => task.status === "incomplete");
+    if (incompleteTasks.length === 0) {
+      console.log("no task");
+      setFilterTask([]);
+    } else {
+      setFilterTask(incompleteTasks);
+    }
+  };
+
+  useEffect(() => {
+    if (todo.length === 0) {
+      return;
+    }
+    localStorage.setItem("Todo", JSON.stringify(todo));
+  }, [todo]);
+
+  useEffect(() => {
+    const savedTodos = localStorage.getItem("Todo");
+    if (savedTodos) {
+      // console.log(savedTodos);
+
+      setTodo(JSON.parse(savedTodos));
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <nav className="navigation-bar">
+          <Link to="/">Home</Link> | {<Link to="/login">Login</Link>}
+        </nav>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                addTask={addTask}
+                taskCompleted={taskCompleted}
+                taskIncompleted={taskIncompleted}
+                setFilterTask={setFilterTask}
+                filterTask={filterTask}
+                checked={checked}
+                deleteTask={deleteTask}
+                todo={todo}
+                deleteAll={deleteAll}
+              />
+            }
+          />
+          <Route path="/login" element={<Login />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
