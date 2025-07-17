@@ -1,6 +1,7 @@
 import { Input } from "../../components/Input";
 import { Tab } from "../../components/Tab";
 import { Card } from "../../components/Card";
+import "./style.css";
 const Home = ({
   addTask,
   taskCompleted,
@@ -14,35 +15,17 @@ const Home = ({
 }) => {
   return (
     <div className="home-page">
-      <h1>To-Do List</h1>
+      <h1>Your To Do</h1>
 
       <Input
         addTask={addTask}
         // label={"New Task:"}
-        placeholder={"This is placeholder"}
+        placeholder={"Add new task"}
       />
-
       <Tab
-        config={[
-          {
-            label: "COMPLETED",
-            onClick: () => {
-              taskCompleted();
-            },
-          },
-          {
-            label: "INCOMPLETED",
-            onClick: () => {
-              taskIncompleted();
-            },
-          },
-          {
-            label: "ALL",
-            onClick: () => {
-              setFilterTask(null);
-            },
-          },
-        ]}
+        taskCompleted={taskCompleted}
+        taskIncompleted={taskIncompleted}
+        setFilterTask={setFilterTask}
       />
 
       <Card

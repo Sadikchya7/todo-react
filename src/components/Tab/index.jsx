@@ -1,18 +1,27 @@
 import "./style.css";
-const Tab = ({ config }) => {
+
+const Tab = ({ setFilterTask, taskCompleted, taskIncompleted }) => {
+  const handleChange = (event) => {
+    const value = event.target.value;
+
+    if (value === "all") {
+      setFilterTask(null);
+    } else if (value === "completed") {
+      taskCompleted();
+    } else if (value === "incompleted") {
+      taskIncompleted();
+    }
+  };
+
   return (
-    <div>
-      {/* <p>Select filter</p> */}
-      <div className="tab">
-        {config.map((buttonConfig, index) => {
-          return (
-            <button onClick={buttonConfig.onClick} key={index}>
-              {buttonConfig.label}
-            </button>
-          );
-        })}
-      </div>
+    <div className="tab">
+      <select name="options" onChange={handleChange}>
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="incompleted">Incompleted</option>
+      </select>
     </div>
   );
 };
+
 export { Tab };

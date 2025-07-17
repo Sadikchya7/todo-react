@@ -6,7 +6,6 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* Card-style login box */
 .login-box {
   background-color: #ffffff;
   padding: 32px;
@@ -16,27 +15,30 @@
   text-align: center;
 }
 .login-box h2 {
+  margin: 0;
   margin-bottom: 24px;
   color: #333;
   font-weight: 600;
 }
 .login-box input {
+  color: #0f0f0f;
   width: 295px;
   padding: 12px;
   margin-bottom: 16px;
-  border: 1px solid #ddd;
+  border: 2px solid gray;
   border-radius: 8px;
+  background: none;
   font-size: 14px;
 }
 .login-box input:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  border-color: #0f0f0f;
+  box-shadow: 0 0 0 2px rgba(122, 122, 122, 0.2);
 }
 .login-box button {
   width: 100%;
   padding: 12px;
-  background-color: #3b82f6;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 8px;
@@ -44,5 +46,5 @@
   cursor: pointer;
 }
 .login-box button:hover {
-  background-color: #2563eb;
+  background-color: #313131;
 }

@@ -1,64 +1,40 @@
 .card {
-  margin: 20px 0;
-  width: 370px;
-  background-color: white;
-  padding: 5px 15px;
-  text-align: start;
-  font-size: large;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+}
+.task-list-container {
+  padding: 5px;
+  width: 97%;
+  min-height: 45px;
+  color: black;
+  border: 2px solid gray;
   border-radius: 15px;
-
-  .task-list-container {
-    width: 370px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    background-color: #b78df8;
-    border-radius: 20px;
-    /* opacity: 80%; */
-    margin: 20px 0;
-  }
-  .delete-all-button {
-    color: white;
-    font-size: small;
-    width: 73px;
-    text-align: center;
-    background-color: #b78df8;
-    border-radius: 15px;
-  }
-  .delete-all-button:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .delete-all-button:active {
-    background-color: #bbb9b9;
-  }
-  .task-list {
-    width: 330px;
-    display: flex;
-
-    input {
-      margin: 5px 20px;
-      border: 3px solid white;
-      width: 18px;
-      min-height: 18px;
-      accent-color: white;
-      cursor: pointer;
-      position: relative;
-    }
-  }
-  .delete-icon {
-    background-color: white;
-    border-radius: 5px;
-    height: 26px;
-    aspect-ratio: 1/1;
-    padding: 0;
-    display: flex;
-    border: 1px solid transparent;
-  }
-  .delete-icon:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .delete-icon:active {
-    background-color: #bbb9b9;
-  }
+  margin: 14px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-list-container button {
+  background: none;
+  border: none;
+}
+.task-list-container button:hover {
+  opacity: 0.7;
+}
+.task-list-container button img:active {
+  background-color: #bbb9b9;
+  /* border: 3px solid black; */
+}
+.task-list {
+  margin-left: 10px;
+  font-size: 20px;
+}
+.task-list input {
+  margin: 5px 8px;
+  border: 1px solid gray;
+  width: 18px;
+  min-height: 18px;
+  accent-color: rgb(183, 183, 183);
+  cursor: pointer;
+  position: relative;
+  /* color: beige; */
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 import "./App.css";
 function App() {
@@ -71,13 +71,14 @@ function App() {
   return (
     <>
       <Router>
-        <nav className="navigation-bar">
-          <Link to="/">Home</Link> | {<Link to="/login">Login</Link>}
-        </nav>
+        {/* <nav className="navigation-bar">
+          <Link to="/">Login</Link> | {<Link to="/home">Home</Link>}
+        </nav> */}
 
         <Routes>
+          <Route path="/" element={<Login />}></Route>
           <Route
-            path="/"
+            path="/home"
             element={
               <Home
                 addTask={addTask}
@@ -92,7 +93,6 @@ function App() {
               />
             }
           />
-          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </Router>
     </>

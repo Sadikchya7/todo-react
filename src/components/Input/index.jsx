@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-
+import Add from "./../../assests/line.png";
 const Input = ({ addTask, label, placeholder }) => {
   const [task, setTask] = useState("");
 
@@ -42,7 +42,9 @@ const Input = ({ addTask, label, placeholder }) => {
           onChange={onChange}
           placeholder={placeholder}
         />
-        <button onClick={onAdd}>Add</button>
+        <button onClick={onAdd}>
+          <img src={Add} alt="add"></img>
+        </button>
       </div>
     </div>
   );
