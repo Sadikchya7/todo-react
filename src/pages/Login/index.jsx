@@ -19,7 +19,7 @@ const LoginPage = () => {
 
   if (isCorrectPassword) {
     localStorage.setItem("access", "true");
-    debugger;
+    // debugger;
     // return <Navigate to="/home" />;
   }
   if (isLoggedIn || isCorrectPassword) {

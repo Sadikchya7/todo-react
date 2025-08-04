@@ -15,4 +15,14 @@
     /* font-family: "DejaVu", " Sans Mono", monospace; */
     /* font-family: "Audiowide", sans-serif; */
   }
+  h2 {
+    text-align: start;
+    color: black;
+    /* background-color: #986bdc; */
+    /* text-shadow: 3px 3px 3px #ababab; */
+    /* font-style: oblique; */
+    /* font-weight: 900; */
+    /* font-family: "DejaVu", " Sans Mono", monospace; */
+    /* font-family: "Audiowide", sans-serif; */
+  }
 }

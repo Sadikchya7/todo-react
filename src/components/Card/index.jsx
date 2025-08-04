@@ -1,6 +1,6 @@
 import "./style.css";
 import Delete from "./../../assests/trash-can.png";
-const Card = ({ filterTask, checked, deleteTask, todo, deleteAll }) => {
+const Card = ({ filterTask, checked, deleteTask, todo }) => {
   const onChecked = (index) => {
     const updatedTodo = [...todo];
     const task = updatedTodo[index];
@@ -9,6 +9,7 @@ const Card = ({ filterTask, checked, deleteTask, todo, deleteAll }) => {
 
     checked(updatedTodo);
   };
+
   return (
     <div className="card">
       <div>
@@ -62,6 +63,7 @@ const Card = ({ filterTask, checked, deleteTask, todo, deleteAll }) => {
                 <label
                   style={{
                     margin: "10px 20px ",
+                    // textDecoration: task.checked ? "line-through" : "none",
                   }}
                 >
                   {task.title}

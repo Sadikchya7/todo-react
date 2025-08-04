@@ -4,10 +4,10 @@ import { Input } from "../../components/Input";
 import { Tab } from "../../components/Tab";
 import { Card } from "../../components/Card";
 import "./style.css";
-const Home = () => {
+const AllToDo = () => {
   const [todo, setTodo] = useState([]);
   const [filterTask, setFilterTask] = useState(null);
-  const hasAccess = localStorage.getItem("access") === "true";
+  // const hasAccess = localStorage.getItem("access") === "true";
   useEffect(() => {
     if (todo.length === 0) {
       return;
@@ -23,9 +23,6 @@ const Home = () => {
       setTodo(JSON.parse(savedTodos));
     }
   }, []);
-  if (!hasAccess) {
-    return <Navigate to="/" />;
-  }
 
   const addTask = (newTask) => {
     setTodo([...todo, newTask]);
@@ -84,11 +81,7 @@ const Home = () => {
         // label={"New Task:"}
         placeholder={"Add new task"}
       />
-      <Tab
-        taskCompleted={taskCompleted}
-        taskIncompleted={taskIncompleted}
-        setFilterTask={setFilterTask}
-      />
+      <Tab />
 
       <Card
         filterTask={filterTask}
@@ -96,8 +89,9 @@ const Home = () => {
         deleteTask={deleteTask}
         todo={todo}
         deleteAll={deleteAll}
+        state="home"
       />
     </div>
   );
 };
-export default Home;
+export default AllToDo;
