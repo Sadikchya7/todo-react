@@ -6,6 +6,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [isCorrectPassword, setIsCorrectPassword] = useState(false);
+  const isLoggedIn = localStorage.getItem("access") === "true";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +16,13 @@ const LoginPage = () => {
       alert("incorrect password or username!");
     }
   };
+
   if (isCorrectPassword) {
+    localStorage.setItem("access", "true");
+    debugger;
+    // return <Navigate to="/home" />;
+  }
+  if (isLoggedIn || isCorrectPassword) {
     return <Navigate to="/home" />;
   }
   return (

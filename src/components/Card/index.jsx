@@ -55,6 +55,7 @@ const Card = ({ filterTask, checked, deleteTask, todo, deleteAll }) => {
               style={{
                 backgroundColor: task.checked ? "#50C878" : "#FF0000",
                 color: "white",
+                border: "none",
               }}
             >
               <div className="task-list">
