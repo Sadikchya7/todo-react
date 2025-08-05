@@ -5,7 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import AllToDo from "./pages/AllToDo";
 import CompletedToDo from "./pages/CompletedToDo";
 import IncompletedToDo from "./pages/IncompletedToDo";
@@ -14,6 +14,7 @@ import "./App.css";
 
 function ProtectedRoute({ children }) {
   const hasAccess = localStorage.getItem("access") === "true";
+  console.log(hasAccess, "hasAccess");
   if (!hasAccess) {
     return <Navigate to="/" />;
   }

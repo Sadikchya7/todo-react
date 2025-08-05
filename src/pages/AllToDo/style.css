@@ -1,3 +1,9 @@
 .home-page {
   min-width: 450px;
 }
+.logout-button {
+  display: flex;
+  justify-self: flex-end;
+  border-radius: 15px;
+  box-shadow: none;
+}

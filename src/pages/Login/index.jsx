@@ -23,7 +23,7 @@ const LoginPage = () => {
     // return <Navigate to="/home" />;
   }
   if (isLoggedIn || isCorrectPassword) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/alltodo" />;
   }
   return (
     <div className="login-container">

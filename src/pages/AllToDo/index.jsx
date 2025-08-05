@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Input } from "../../components/Input";
 import { Tab } from "../../components/Tab";
@@ -48,39 +48,38 @@ const AllToDo = () => {
   const checked = (updatedTodo) => {
     setTodo(updatedTodo);
   };
-
-  const taskCompleted = () => {
-    const completedTasks = todo.filter((task) => task.status === "completed");
-    if (completedTasks.length === 0) {
-      setFilterTask([]);
-    } else {
-      setFilterTask(completedTasks);
-    }
+  const navigate = useNavigate();
+  const logOut = () => {
+    localStorage.removeItem("access");
+    navigate("/");
   };
+  // const taskCompleted = () => {
+  //   const completedTasks = todo.filter((task) => task.status === "completed");
+  //   if (completedTasks.length === 0) {
+  //     setFilterTask([]);
+  //   } else {
+  //     setFilterTask(completedTasks);
+  //   }
+  // };
 
-  const taskIncompleted = () => {
-    const incompleteTasks = todo.filter((task) => task.status === "incomplete");
-    if (incompleteTasks.length === 0) {
-      console.log("no task");
-      setFilterTask([]);
-    } else {
-      setFilterTask(incompleteTasks);
-    }
-  };
+  // const taskIncompleted = () => {
+  //   const incompleteTasks = todo.filter((task) => task.status === "incomplete");
+  //   if (incompleteTasks.length === 0) {
+  //     console.log("no task");
+  //     setFilterTask([]);
+  //   } else {
+  //     setFilterTask(incompleteTasks);
+  //   }
+  // };
 
-  // else {
-  //   return <Navigate to="/home"></Navigate>;
-  // }
   return (
     <div className="home-page">
-      {/* <button onClick={Logout}>Logout</button> */}
+      <button className="logout-button" onClick={logOut}>
+        Logout
+      </button>
       <h1>Your To Do</h1>
 
-      <Input
-        addTask={addTask}
-        // label={"New Task:"}
-        placeholder={"Add new task"}
-      />
+      <Input addTask={addTask} placeholder={"Add new task"} />
       <Tab />
 
       <Card

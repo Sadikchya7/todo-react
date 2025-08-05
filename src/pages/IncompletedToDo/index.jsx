@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Tab } from "../../components/Tab";
 import { Card } from "../../components/Card";
 import "./style.css";
+import { IncompletedCard } from "../../components/IncompleteCard";
 const IncompletedToDo = () => {
   const [todo, setTodo] = useState([]);
   // const [IncompletedTasks, setIncompletedTasks] = useState([]);
@@ -30,10 +31,9 @@ const IncompletedToDo = () => {
 
   return (
     <>
-      <h1>Your To do</h1>
-      <h2>Incomplete Tasks</h2>
+      <h2>Your Incomplete Tasks</h2>
       <Tab />
-      <Card todo={todo} checked={checked} filterTask={filterTask} />
+      <IncompletedCard todo={todo} checked={checked} filterTask={filterTask} />
     </>
   );
 };
